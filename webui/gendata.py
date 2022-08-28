@@ -18,6 +18,7 @@ from ffhq_dataset.face_alignment import image_align
 from ffhq_dataset.landmarks_detector import LandmarksDetector
 
 MODEL_PATH = "/kaggle/working/StyleFlowPytorch/mymodels"
+# MODEL_PATH = "../mymodels"
 
 landmarks_model_path = f"{MODEL_PATH}/shape_predictor_68_face_landmarks.dat"
 landmarks_detector = LandmarksDetector(landmarks_model_path)
@@ -99,7 +100,7 @@ if __name__ == "__main__":
         faceimg = np.array(faceimg)
 
         # encode image
-        steps = (sys.argv[2] if sys.argv[2] else 10)
+        steps = int(sys.argv[2] if sys.argv[2] else 10)
         dlatents = encode_real_images(
             device, G, encoder, dlatent_avg, faceimg, truncation_psi=0.5, num_steps=steps
             )
