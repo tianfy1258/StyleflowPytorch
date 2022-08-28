@@ -17,7 +17,9 @@ from DPR import dpr_init, get_lightvec
 from ffhq_dataset.face_alignment import image_align
 from ffhq_dataset.landmarks_detector import LandmarksDetector
 
-landmarks_model_path = "../mymodels/shape_predictor_68_face_landmarks.dat"
+MODEL_PATH = os.path.abspath(os.path.join(os.getcwd(), "../mymodels"))
+
+landmarks_model_path = f"{MODEL_PATH}/shape_predictor_68_face_landmarks.dat"
 landmarks_detector = LandmarksDetector(landmarks_model_path)
 
 def getface(imagepath):
@@ -73,7 +75,7 @@ if __name__ == "__main__":
 
     lightmodel = dpr_init(device)
 
-    checkpoint = '../mymodels/face-attributes_scripted.pt'
+    checkpoint = fr'{MODEL_PATH}/face-attributes_scripted.pt'
     faceattr_model = torch.jit.load(checkpoint, map_location=device)
     faceattr_model = faceattr_model.to(device)
     faceattr_model.eval()
