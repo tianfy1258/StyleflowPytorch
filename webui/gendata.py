@@ -168,6 +168,6 @@ if __name__ == "__main__":
             faceattr_arr[i,6,0] = min(age_out[0],65)
             faceattr_arr[i,7,0] = 0. if glasses == 'none' else 1.
 
-    np.save("/kaggle/StyleFlowPytorch/data/dlatents.npy", dlatents_arr)
-    np.save("/kaggle/StyleFlowPytorch/data/attributes.npy", faceattr_arr)
-    np.save("/kaggle/StyleFlowPytorch/data/lights.npy", lights)
+    np.save("/kaggle/working/data/dlatents.npy", dlatents_arr)
+    np.save("/kaggle/working/data/attributes.npy", faceattr_arr)
+    np.save("/kaggle/working/data/lights.npy", lights)
