@@ -47,7 +47,7 @@ def encode_images(device, G, encoder, dlatent_avg, images, truncation_psi, num_s
         lr_rampup_length=0.05,
         noise_ramp_length=0.75,
         regularize_noise_weight=1e5,
-        # verbose=True,
+        verbose=False,
         # verbose_prefix='Projecting image(s) {}/{}'.format(0 * batch_size + len(images), len(images))
     )
 
