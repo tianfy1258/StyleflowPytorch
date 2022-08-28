@@ -76,7 +76,7 @@ if __name__ == "__main__":
     samples = glob.glob(sys.argv[1]+"/*.*")
     # samples = glob.glob("./images/*")
 
-    device = 'cuda'
+    device = 'cuda:0'
 
     encoder, G, dlatent_avg = encoder_init(device)
 
