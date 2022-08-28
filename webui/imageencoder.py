@@ -66,7 +66,7 @@ def encode_real_images(device, G, encoder, dlatent_avg, faceimg, truncation_psi,
     return dlatents.detach().cpu().numpy()
 
 
-MODEL_PATH = os.path.abspath(os.path.join(os.getcwd(), "../mymodels"))
+MODEL_PATH = "../mymodels"
 
 def encoder_init(device):
     G = stylegan2.models.load(f'{MODEL_PATH}/Gs_ffhq.pth')

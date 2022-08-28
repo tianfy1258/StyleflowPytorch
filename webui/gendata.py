@@ -17,7 +17,7 @@ from DPR import dpr_init, get_lightvec
 from ffhq_dataset.face_alignment import image_align
 from ffhq_dataset.landmarks_detector import LandmarksDetector
 
-MODEL_PATH = os.path.abspath(os.path.join(os.getcwd(), "../mymodels"))
+MODEL_PATH = "../mymodels"
 
 landmarks_model_path = f"{MODEL_PATH}/shape_predictor_68_face_landmarks.dat"
 landmarks_detector = LandmarksDetector(landmarks_model_path)
