@@ -110,7 +110,7 @@ if __name__ == "__main__":
         dlatents = encode_real_images(
             device, G, encoder, dlatent_avg, faceimg, truncation_psi=0.5, num_steps=steps
             )
-        print(f"use steps: {steps}")
+        # print(f"use steps: {steps}")
         dlatents_arr[i,0,:,:] = dlatents
 
         out_light = get_lightvec(device, lightmodel, faceimg)
@@ -156,7 +156,7 @@ if __name__ == "__main__":
             race = idx2name(int(race_out[0][0]), 'race')
 
             # 23 18.3 1.65 33.47 none male none white
-            print(age, pitch, yaw, beauty, expression, gender, glasses, race)
+            # print(age, pitch, yaw, beauty, expression, gender, glasses, race)
 
             # ['Gender', 'Glasses', 'Yaw', 'Pitch', 'Baldness', 'Beard', 'Age', 'Expression']
             faceattr_arr[i,0,0] = 0. if gender == 'female' else 1.

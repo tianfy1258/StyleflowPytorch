@@ -29,7 +29,8 @@ def encode_images(device, G, encoder, dlatent_avg, images, truncation_psi, num_s
         dlatent_device=device,
         dlatent_batch_size=1024,
         lpips_model=lpips_model,
-        lpips_size=256
+        lpips_size=256,
+        verbose=False
     )
 
     dlatent_param = encoder(F.interpolate(images, (256, 256), mode='bicubic'))
