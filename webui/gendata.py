@@ -69,10 +69,10 @@ def name2idx(name):
     return lookup_table[name]
 
 if __name__ == "__main__":
-    import resource
-    maxsize = 1024 * 1024 * 1024 * 8
-    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-    resource.setrlimit(resource.RLIMIT_AS, (maxsize, hard))
+    # import resource
+    # maxsize = 1024 * 1024 * 1024 * 8
+    # soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+    # resource.setrlimit(resource.RLIMIT_AS, (maxsize, hard))
     samples = glob.glob(sys.argv[1]+"/*.*")
     # samples = glob.glob("./images/*")
 
