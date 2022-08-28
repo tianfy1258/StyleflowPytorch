@@ -20,8 +20,10 @@ from ffhq_dataset.landmarks_detector import LandmarksDetector
 MODEL_PATH = "/kaggle/working/StyleFlowPytorch/mymodels"
 # MODEL_PATH = "../mymodels"
 
+print("loading shape_predictor_68_face_landmarks.dat ... ",sep="")
 landmarks_model_path = f"{MODEL_PATH}/shape_predictor_68_face_landmarks.dat"
 landmarks_detector = LandmarksDetector(landmarks_model_path)
+print("Done.")
 
 def getface(imagepath):
     face_landmarks = landmarks_detector.get_landmarks(imagepath)
@@ -67,6 +69,10 @@ def name2idx(name):
     return lookup_table[name]
 
 if __name__ == "__main__":
+    import resource
+    maxsize = 1024 * 1024 * 1024 * 8
+    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+    resource.setrlimit(resource.RLIMIT_AS, (maxsize, hard))
     samples = glob.glob(sys.argv[1]+"/*.*")
     # samples = glob.glob("./images/*")
 
