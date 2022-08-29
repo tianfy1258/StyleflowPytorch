@@ -69,6 +69,7 @@ def name2idx(name):
     return lookup_table[name]
 
 if __name__ == "__main__":
+    out = []
     # import resource
     # maxsize = 1024 * 1024 * 1024 * 8
     # soft, hard = resource.getrlimit(resource.RLIMIT_AS)
@@ -102,6 +103,8 @@ if __name__ == "__main__":
 
         if faceimg is None:
             continue
+
+        out.append(full_path[-10:])
 
         faceimg = np.array(faceimg)
 
@@ -171,3 +174,6 @@ if __name__ == "__main__":
     np.save("/kaggle/working/data/dlatents.npy", dlatents_arr)
     np.save("/kaggle/working/data/attributes.npy", faceattr_arr)
     np.save("/kaggle/working/data/lights.npy", lights)
+    with open("/kaggle/working/encode_files.txt","w") as f:
+        f.write("\n".join(out))
+
